@@ -1,4 +1,4 @@
-package br.com.f2e.cantina.cliente.model;
+package br.com.f2e.cantina.customer.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

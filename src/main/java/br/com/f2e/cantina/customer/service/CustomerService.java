@@ -1,19 +1,19 @@
-package br.com.f2e.cantina.cliente.service;
+package br.com.f2e.cantina.customer.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.f2e.cantina.cliente.model.Customer;
-import br.com.f2e.cantina.cliente.model.dto.ClienteInputDto;
-import br.com.f2e.cantina.cliente.repository.ClienteRepository;
+import br.com.f2e.cantina.customer.model.Customer;
+import br.com.f2e.cantina.customer.model.dto.ClienteInputDto;
+import br.com.f2e.cantina.customer.repository.CustomerRepository;
 
 @Service
-public class ClienteService {
+public class CustomerService {
 
-	private final ClienteRepository clienteRepository;
+	private final CustomerRepository clienteRepository;
 
-	public ClienteService(ClienteRepository clienteRepository) {
+	public CustomerService(CustomerRepository clienteRepository) {
 		this.clienteRepository = clienteRepository;
 	}
 
