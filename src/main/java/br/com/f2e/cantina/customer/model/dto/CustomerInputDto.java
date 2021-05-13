@@ -3,14 +3,14 @@ package br.com.f2e.cantina.customer.model.dto;
 import br.com.f2e.cantina.customer.model.Address;
 import br.com.f2e.cantina.customer.model.Customer;
 
-public class ClienteInputDto {
+public class CustomerInputDto {
 
 	private String nome;
 	private String cpf;
 	private AddressInputDto endereco;
 	private String telefone;
 
-	public ClienteInputDto(String nome, String cpf, AddressInputDto endereco, String telefone) {
+	public CustomerInputDto(String nome, String cpf, AddressInputDto endereco, String telefone) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.endereco = endereco;

@@ -46,4 +46,18 @@ public class Address {
 		return state;
 	}
 
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", street=" + street + ", number=" + number + ", city=" + city + ", state=" + state
+				+ "]";
+	}
+
+	public void update(Address address) {
+		this.street = address.getStreet();
+		this.number = address.getNumber();
+		this.city = address.getCity();
+		this.state = address.getState();
+
+	}
+
 }

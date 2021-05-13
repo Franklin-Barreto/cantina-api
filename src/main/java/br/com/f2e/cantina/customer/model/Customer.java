@@ -14,44 +14,47 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nome;
+	private String name;
 	private String cpf;
 	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER, optional = false)
-	private Address endereco;
-	private String telefone;
+	private Address address;
+	private String phone;
 
 	public Customer() {
 	}
 
-	public Customer(String nome, String cpf, Address endereco, String telefone) {
-		this.nome = nome;
+	public Customer(String nome, String cpf, Address address, String phone) {
+		this.name = nome;
 		this.cpf = cpf;
-		this.endereco = endereco;
-		this.telefone = telefone;
+		this.address = address;
+		this.phone = phone;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
 	public String getCpf() {
 		return cpf;
 	}
 
-	public Address getEndereco() {
-		return endereco;
+	public Address getAddress() {
+		return address;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public String getPhone() {
+		return phone;
+	}
+	
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public void atuaLizaEndereco(Address endereco) {
-		this.endereco = endereco;
+	public void updateAddress(Address address) {
+		this.address.update(address);
 	}
-
 }
