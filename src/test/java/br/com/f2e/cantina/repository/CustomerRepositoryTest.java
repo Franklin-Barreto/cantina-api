@@ -13,7 +13,7 @@ import br.com.f2e.cantina.customer.model.Customer;
 import br.com.f2e.cantina.customer.repository.CustomerRepository;
 
 @DataJpaTest
-class ClienteRepositoryTest {
+class CustomerRepositoryTest {
 
 	@Autowired
 	private CustomerRepository customerRepository;
@@ -35,8 +35,8 @@ class ClienteRepositoryTest {
 	@Test
 	void atualizaClienteTest() {
 		Address endereco = new Address("Av Osvaldo Vale Cordeiro", "1360", "São Paulo", "SP");
-		customer.atuaLizaEndereco(endereco);
-		assertEquals("Av Osvaldo Vale Cordeiro", customer.getEndereco().getStreet());
+		customer.updateAddress(endereco);
+		assertEquals("Av Osvaldo Vale Cordeiro", customer.getAddress().getStreet());
 	}
 
 }

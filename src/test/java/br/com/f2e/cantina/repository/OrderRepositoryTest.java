@@ -12,14 +12,14 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import br.com.f2e.cantina.customer.model.Address;
 import br.com.f2e.cantina.customer.model.Customer;
-import br.com.f2e.cantina.pedido.model.Category;
-import br.com.f2e.cantina.pedido.model.Order;
-import br.com.f2e.cantina.pedido.model.OrderItem;
-import br.com.f2e.cantina.pedido.model.Product;
-import br.com.f2e.cantina.pedido.repository.OrderRepository;
+import br.com.f2e.cantina.order.model.Order;
+import br.com.f2e.cantina.order.model.OrderItem;
+import br.com.f2e.cantina.order.repository.OrderRepository;
+import br.com.f2e.cantina.product.model.Category;
+import br.com.f2e.cantina.product.model.Product;
 
 @DataJpaTest
-class PedidoRepositoryTest {
+class OrderRepositoryTest {
 
 	@Autowired
 	private OrderRepository orderRepository;
