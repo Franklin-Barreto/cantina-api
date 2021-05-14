@@ -6,4 +6,5 @@ import br.com.f2e.cantina.customer.model.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
+	Customer findByName(String name);
 }

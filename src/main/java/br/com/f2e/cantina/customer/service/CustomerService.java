@@ -1,6 +1,7 @@
 package br.com.f2e.cantina.customer.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class CustomerService {
 	}
 
 	public Customer findById(Long id) {
-		return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Não existe"));
+		return customerRepository.findById(id).orElseThrow(() -> new NoSuchElementException ("Not found"));
 	}
 
 	public List<Customer> findAll() {
@@ -34,7 +35,7 @@ public class CustomerService {
 		Customer customer = customerRepository.getOne(id);
 		customer.setPhone(customerUpdate.getPhone());
 		customer.updateAddress(customerUpdate.getAddress());
-		return  customer;
+		return customer;
 	}
 
 }

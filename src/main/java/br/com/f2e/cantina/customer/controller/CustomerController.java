@@ -2,6 +2,8 @@ package br.com.f2e.cantina.customer.controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,6 +36,7 @@ public class CustomerController {
 	}
 
 	@PutMapping("/{id}")
+	@Transactional
 	public ResponseEntity<CustomerViewDto> update(@PathVariable Long id,
 			@RequestBody CustomerUpdateDto customerUpdate) {
 		Customer customer = customerService.update(id, customerUpdate);

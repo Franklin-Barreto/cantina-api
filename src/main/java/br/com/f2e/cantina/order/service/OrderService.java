@@ -43,4 +43,8 @@ public class OrderService {
 
 		return orderRepository.save(order);
 	}
+
+	public void findAll() {
+		orderRepository.findAll();
+	}
 }

@@ -1,6 +1,7 @@
 package br.com.f2e.cantina.config.validation;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,11 @@ public class ErrorValidationHandler {
 			String message = messageSorce.getMessage(error, LocaleContextHolder.getLocale());
 			return new ErrorsInputDto(error.getField(), message);
 		}).collect(Collectors.toList());
+	}
+
+	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+	@ExceptionHandler(NoSuchElementException.class)
+	public String notFoundHandler(NoSuchElementException exception) {
+		return exception.getMessage();
 	}
 }

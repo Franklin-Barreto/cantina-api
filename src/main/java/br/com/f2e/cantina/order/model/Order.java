@@ -19,18 +19,21 @@ import javax.persistence.Table;
 import br.com.f2e.cantina.customer.model.Customer;
 
 @Entity
-@Table(name = "teste")
+@Table(name = "\"ORDER\"")
 public class Order {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private LocalDate createdAt;
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderItem> itens;
 	@ManyToOne
 	@JoinColumn(name = "customer_fk")
 	private Customer customer;
+
+	Order() {
+	}
 
 	public Order(Customer customer) {
 		this.createdAt = LocalDate.now();
