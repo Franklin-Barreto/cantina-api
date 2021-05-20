@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.f2e.cantina.customer.model.Customer;
@@ -34,9 +36,8 @@ public class OrderService {
 		Map<Long, Integer> map = orderInputDto.getOrderItens().stream()
 				.collect(Collectors.toMap(OrderItemInputDto::getProductId, OrderItemInputDto::getQuantity));
 
-		List<OrderItem> orderItens = productService.findByIds(map.keySet()).stream().map(p -> {
-			return new OrderItem(p, map.get(p.getId()));
-		}).collect(Collectors.toList());
+		List<OrderItem> orderItens = productService.findByIds(map.keySet()).stream()
+				.map(p -> new OrderItem(p, map.get(p.getId()))).collect(Collectors.toList());
 
 		Order order = new Order(customer);
 		order.addAllItens(orderItens);
@@ -44,7 +45,7 @@ public class OrderService {
 		return orderRepository.save(order);
 	}
 
-	public void findAll() {
-		orderRepository.findAll();
+	public Page<Order> findAll(Pageable pagination) {
+		return orderRepository.findAll(pagination);
 	}
 }
